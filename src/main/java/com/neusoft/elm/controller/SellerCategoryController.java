@@ -27,7 +27,7 @@ public class SellerCategoryController {
         List<ProductCategory> list = services.findAll();
         // 将 list 添加到 map
         map.put("categoryList", list);
-        return new ModelAndView("category/listxiesi", map);
+        return new ModelAndView("category/list", map);
     }
 
 

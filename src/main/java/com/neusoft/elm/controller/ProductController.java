@@ -27,4 +27,5 @@ public class ProductController {
         PageRequest of = PageRequest.of(pageNumber - 1, pageSize);
         return services.findAll(of);
     }
+
 }
