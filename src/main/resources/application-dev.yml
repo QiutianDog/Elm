@@ -1,0 +1,33 @@
+server:
+  port: 80
+  servlet:
+    context-path: /
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/elm?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+          # ddl-auto 参数说明
+          #   create: 每次运行都会重新创建表，所以数据会丢失
+          #   create-drop: 每次运行都会重新创建表，程序执行结束之后就会删除表
+          #   update: 每次运行程序时，没有表就会创建表，如果对象发生改变，会更新表结构。
+          #   validate: 校验程序与数据库字段是否相同，不同就会报错
+          #   none: 禁止使用ddl语句
+    show-sql: true
+  jackson:
+    default-property-inclusion: non_null
+  freemarker:
+#    allow-request-override: false
+#    cache: false
+#    check-template-location: true
+#    charset: UTF-8
+#    content-type: text/html; charset=utf-8
+#    expose-request-attributes: false
+#    expose-session-attributes: false
+#    expose-spring-macro-helpers: false
+    suffix: .ftl
+    template-loader-path: classpath:/templates
