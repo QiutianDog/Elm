@@ -30,8 +30,14 @@ public interface CategoryServices {
      * @param categoryTypeList 产品类名类型封装成的List集合
      * @return 同一产品类目类型所封装成的List集合
      */
-    List<ProductCategory> findByCategoryType(List<Integer> categoryTypeList);
+    List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
 
+    /**
+     * 根据类目类型查询
+     * @param categoryType 产品类名类型
+     * @return 类目对象
+     */
+    ProductCategory findByCategoryType(Integer categoryType);
 
     /**
      * 存储一个类目

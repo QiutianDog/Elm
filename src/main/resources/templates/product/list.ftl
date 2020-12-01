@@ -30,7 +30,7 @@
                             <tr>
                                 <td>${product.productId}</td>
                                 <td>${product.productName}</td>
-                                <td><img width="100px" height="100px" src="${product.productIcon}" alt="方便面"></img></td>
+                                <td><img width="100px" height="100px" src="${product.productIcon}" alt="方便面"></td>
                                 <td>${product.productDescription}</td>
                                 <td>${product.productPrice}</td>
                                 <td>${product.productStock}</td>
@@ -38,8 +38,8 @@
                                 <td>${product.categoryType}</td>
                                 <td>${product.createTime}</td>
                                 <td>${product.updateTime}</td>
-                                <td><a href="/seller/product/del" style="color: #01AAED">删除</a></td>
-                                <td><a href="/seller/product/update" style="color: #01AAED">修改</a></td>
+                                <td><a href="/seller/product/del?productId=${product.productId}" style="color: #01AAED">删除</a></td>
+                                <td><a href="/seller/product/index?productId=${product.productId}" style="color: #01AAED">修改</a></td>
                             </tr>
                         </#list>
                         </tbody>

@@ -33,4 +33,5 @@ spring:
     template-loader-path: classpath:/templates
   mvc:
     static-path-pattern: /static/**
-
+#  resources:
+#    static-locations: /static/images/test/**
