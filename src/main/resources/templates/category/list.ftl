@@ -29,8 +29,8 @@
                             <td>${category.categoryType}</td>
                             <td>${category.createTime}</td>
                             <td>${category.updateTime}</td>
-                            <td><a href="/seller/category/del" style="color: #01AAED">删除</a></td>
-                            <td><a href="/seller/category/update" style="color: #01AAED">修改</a></td>
+                            <td><a href="/seller/category/del?categoryId=${category.categoryId}" style="color: #01AAED">删除</a></td>
+                            <td><a href="/seller/category/index?categoryId=${category.categoryId}" style="color: #01AAED">修改</a></td>
                         </tr>
                     </#list>
                     </tbody>

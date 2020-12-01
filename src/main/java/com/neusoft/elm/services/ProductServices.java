@@ -64,4 +64,10 @@ public interface ProductServices {
      * @param productId 商品Id
      */
     void decreaseStock(String productId);
+
+    /**
+     * 通过Id删除对象
+     * @param productId ID
+     */
+    void remove(String productId);
 }

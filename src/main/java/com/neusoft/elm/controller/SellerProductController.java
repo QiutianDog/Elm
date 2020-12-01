@@ -2,6 +2,7 @@ package com.neusoft.elm.controller;
 
 import com.neusoft.elm.dataobject.ProductCategory;
 import com.neusoft.elm.dataobject.ProductInfo;
+import com.neusoft.elm.enums.ResultEnum;
 import com.neusoft.elm.exception.SellException;
 import com.neusoft.elm.services.CategoryServices;
 import com.neusoft.elm.services.ProductServices;
@@ -67,14 +68,6 @@ public class SellerProductController {
 
     @PostMapping("/save")
     public ModelAndView save(HttpServletRequest request, Map<String, Object> map) {
-
-        Enumeration<String> parameterNames = request.getParameterNames();
-        while (parameterNames.hasMoreElements()){
-            String s = parameterNames.nextElement();
-            String parameter = request.getParameter(s);
-            System.out.println(s + ":" + parameter);
-        }
-
         ProductInfo productInfo = new ProductInfo();
         try{
             productInfo.setProductId(request.getParameter("productId"));
@@ -92,7 +85,7 @@ public class SellerProductController {
                 productInfo.setProductStatus(1);
             }
             productInfo.setCategoryType(Integer.valueOf(request.getParameter("categoryType")));
-            ProductInfo save = productServices.save(productInfo);
+            productServices.save(productInfo);
         } catch (SellException e){
             map.put("msg", e.getMessage());
             map.put("url", "/seller/product/index");
@@ -123,5 +116,21 @@ public class SellerProductController {
         }
         resObj.put("src", "static/images/test/" + fileName);
         return resObj;
+    }
+
+    @GetMapping("del")
+    public ModelAndView remove(HttpServletRequest request
+            , @RequestParam String productId
+            , Map<String, Object> map){
+        String referer = request.getHeader("referer");
+        if ("http://localhost/seller/product/list".equals(referer)) {
+            productServices.remove(productId);
+            map.put("url", "/seller/product/list");
+            return new ModelAndView("common/success", map);
+        } else {
+            map.put("url", "/seller/product/list");
+            map.put("msg", "no root");
+            return new ModelAndView("common/error", map);
+        }
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author QiutianDog
@@ -77,11 +78,16 @@ public class ProductServicesImpl implements ProductServices {
 
     @Override
     public void increaseStock(String productId) {
-        // TODO
+
     }
 
     @Override
     public void decreaseStock(String productId) {
 
+    }
+
+    @Override
+    public void remove(String productId) {
+        repository.deleteById(productId);
     }
 }
