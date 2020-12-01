@@ -114,7 +114,7 @@ public class SellerProductController {
             resObj.put("msg", "error");
             e.printStackTrace();
         }
-        resObj.put("src", "static/images/test/" + fileName);
+        resObj.put("src", "http://localhost/static/images/test/" + fileName);
         return resObj;
     }
 

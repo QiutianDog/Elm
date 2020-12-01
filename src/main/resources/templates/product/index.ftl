@@ -12,19 +12,12 @@
             <div class="layui-row">
                 <form class="layui-form" action="/seller/product/save" method="post" style="padding-top: 50px">
 
-<#--                    <div class="layui-form-item">-->
-<#--                        <label class="layui-form-label" for="productId">商品编号</label>-->
-<#--                        <div class="layui-input-inline">-->
-<#--                            <#if product??>-->
-<#--                                <input type="text" name="productId" required lay-verify="required" placeholder="请输入商品编号"-->
-<#--                                       autocomplete="off" class="layui-input" value="${product.productId}">-->
-<#--                            <#else >-->
-<#--                                <input type="text" name="productId" required lay-verify="required" placeholder="请输入商品编号"-->
-<#--                                       autocomplete="off" class="layui-input">-->
-<#--                            </#if>-->
-<#--                        </div>-->
-<#--                        <div class="layui-form-mid layui-word-aux">必填</div>-->
-<#--                    </div>-->
+                    <#-- 隐藏输入框-->
+                    <#if product??>
+                        <input type="text" name="productId" style="display:none" value="${product.productId}">
+                    <#else >
+                        <input type="text" name="productId" style="display:none" >
+                    </#if>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label" for="productName">商品名称</label>

@@ -46,4 +46,9 @@ public interface CategoryServices {
      */
     ProductCategory save(ProductCategory productCategory);
 
+    /**
+     * 通过Id删除类目
+     * @param categoryId 类目ID
+     */
+    void remove(Integer categoryId);
 }

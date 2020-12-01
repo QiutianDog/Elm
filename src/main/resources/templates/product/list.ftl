@@ -30,7 +30,7 @@
                             <tr>
                                 <td>${product.productId}</td>
                                 <td>${product.productName}</td>
-                                <td><img width="100px" height="100px" src="${product.productIcon}" alt="方便面"></td>
+                                <td><img width="100px" height="100px" src="${product.productIcon}" alt="${product.productName}"></td>
                                 <td>${product.productDescription}</td>
                                 <td>${product.productPrice}</td>
                                 <td>${product.productStock}</td>

@@ -64,7 +64,18 @@ public class SellerCategoryController {
     }
 
     @GetMapping("del")
-    public ModelAndView remove(Integer categoryId) {
-        return null;
+    public ModelAndView remove(HttpServletRequest request
+            , @RequestParam Integer categoryId
+            , Map<String, Object> map) {
+        String referer = request.getHeader("referer");
+        if ("http://localhost/seller/category/list".equals(referer)) {
+            services.remove(categoryId);
+            map.put("url", "/seller/category/list");
+            return new ModelAndView("common/success", map);
+        } else {
+            map.put("url", "/seller/category/list");
+            map.put("msg", "no root");
+            return new ModelAndView("common/error", map);
+        }
     }
 }
