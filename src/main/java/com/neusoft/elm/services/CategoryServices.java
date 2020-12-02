@@ -1,6 +1,7 @@
 package com.neusoft.elm.services;
 
 import com.neusoft.elm.dataobject.ProductCategory;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

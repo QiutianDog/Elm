@@ -46,7 +46,7 @@ public class SellerProductController {
         map.put("productList", pages);
         map.put("pageNumber", pageNumber);
         map.put("pageSize", pageSize);
-        return new ModelAndView("product/list", map);
+        return new ModelAndView("seller/product/list", map);
     }
 
 
@@ -62,7 +62,7 @@ public class SellerProductController {
         }
         List<ProductCategory> categoryList = categoryServices.findAll();
         map.put("categoryList", categoryList);
-        return new ModelAndView("product/index", map);
+        return new ModelAndView("seller/product/index", map);
     }
 
 
@@ -89,7 +89,7 @@ public class SellerProductController {
         } catch (SellException e){
             map.put("msg", e.getMessage());
             map.put("url", "/seller/product/index");
-            e.printStackTrace();
+            return new ModelAndView("common/error", map);
         }
         map.put("url", "/seller/product/list");
         return new ModelAndView("common/success", map);

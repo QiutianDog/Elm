@@ -1,8 +1,10 @@
 package com.neusoft.elm.dataobject;
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
@@ -16,7 +18,7 @@ import java.math.BigDecimal;
 public class OrderDetail {
     /**
      * detailId         订单编号
-     * orderId          点餐人ID
+     * buyerId          点餐人ID
      * productId        商品ID
      * productName      商品名字
      * productPrice     商品单价
@@ -31,9 +33,9 @@ public class OrderDetail {
      */
 
     @Id
-    private Integer detailId;
-
     private String orderId;
+
+    private String buyerId;
 
     private String productId;
 

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<#include "../common/header.ftl">
+<#include "../../common/header.ftl">
 <body>
-    <#include "../common/nav.ftl">
+    <#include "../../common/nav.ftl">
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
@@ -53,7 +53,7 @@
         </div>
     </div>
 </body>
-<#include "../common/end.ftl">
+<#include "../../common/end.ftl">
 <script>
     layui.use('laypage', function(){
         var laypage = layui.laypage;

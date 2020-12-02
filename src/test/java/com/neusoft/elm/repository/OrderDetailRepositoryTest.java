@@ -19,8 +19,7 @@ public class OrderDetailRepositoryTest {
     public void save() {
         OrderDetail orderDetail = new OrderDetail();
 
-        orderDetail.setDetailId(1);
-
+        orderDetail.setOrderId("1");
         /**
          *     private Integer detailId;
          *

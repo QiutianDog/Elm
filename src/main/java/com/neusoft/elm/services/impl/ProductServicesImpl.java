@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
@@ -78,12 +77,32 @@ public class ProductServicesImpl implements ProductServices {
 
     @Override
     public void increaseStock(String productId) {
-
+        Optional<ProductInfo> product = repository.findById(productId);
+        ProductInfo info = product.orElse(null);
+        if (info != null) {
+            Integer stock = info.getProductStock();
+            info.setProductStock(stock + 1);
+            repository.save(info);
+        } else {
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
     }
 
     @Override
     public void decreaseStock(String productId) {
-
+        Optional<ProductInfo> product = repository.findById(productId);
+        ProductInfo info = product.orElse(null);
+        if (info != null) {
+            Integer stock = info.getProductStock();
+            if (stock >= 1) {
+                info.setProductStock(stock - 1);
+                repository.save(info);
+            } else {
+                throw new SellException(ResultEnum.PRODUCT_STOCK_ERROR);
+            }
+        } else {
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
     }
 
     @Override

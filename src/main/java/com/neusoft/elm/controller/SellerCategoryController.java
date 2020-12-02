@@ -31,7 +31,7 @@ public class SellerCategoryController {
         List<ProductCategory> list = services.findAll();
         // 将 list 添加到 map
         map.put("categoryList", list);
-        return new ModelAndView("category/list", map);
+        return new ModelAndView("seller/category/list", map);
     }
 
     @RequestMapping("index")
@@ -40,9 +40,9 @@ public class SellerCategoryController {
         if (categoryId != null) {
             ProductCategory one = services.findOne(categoryId);
             map.put("category", one);
-            return new ModelAndView("category/index", map);
+            return new ModelAndView("seller/category/index", map);
         }
-        return new ModelAndView("category/index", map);
+        return new ModelAndView("seller/category/index", map);
     }
 
     @PostMapping("save")

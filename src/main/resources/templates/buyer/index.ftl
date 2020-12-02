@@ -5,8 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/buyer/">买家入口</a>
+<a href="/buyer/login">登录</a>
 <br>
-<a href="/seller/product/list">商家入口</a>
+<a href="/buyer/register">注册</a>
 </body>
 </html>
