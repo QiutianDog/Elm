@@ -261,4 +261,16 @@ public class BuyerController {
         return new ModelAndView("buyer/info", map);
     }
 
+    @PostMapping("/info")
+    public ModelAndView info(@RequestParam String buyerId
+            , @RequestParam String buyerMoney
+            , Map<String, Object> map) {
+
+        BuyerUser user = buyerServices.findById(buyerId);
+        user.setBuyerMoney(user.getBuyerMoney().add(new BigDecimal(buyerMoney)));
+        buyerServices.save(user);
+        map.put("user", user);
+        map.put("url", "/buyer/info?buyerId="+buyerId);
+        return new ModelAndView("common/success", map);
+    }
 }

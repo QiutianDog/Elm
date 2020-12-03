@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="../../static/css/layui.css">
 </head>
 <body>
+<div style="font-size: 16px;padding: 15px">
+    <a href="/buyer/">上一步</a>
+</div>
 <div style="padding-top: 20%;padding-left: 38%">
     <form class="layui-form" action="/buyer/login" method="post">
         <div class="layui-form-item">

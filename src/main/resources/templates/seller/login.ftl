@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="../../static/css/layui.css">
 </head>
 <body>
-<div style="padding-top: 20%;padding-left: 38%">
+<div style="font-size: 16px;padding: 15px">
+    <a href="/">返回首页</a>
+</div>
+<div style="margin-top: 20%;margin-left: 38%">
     <form class="layui-form" action="/seller/login" method="post">
         <div class="layui-form-item">
             <label class="layui-form-label" for="adminName">用户名</label>

@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="../../static/css/layui.css">
 </head>
 <body>
+<div style="font-size: 16px;padding: 15px">
+    <a href="/">返回首页</a>
+</div>
 <div style="padding-left: 40%; padding-top: 20%">
     <span>
         <a style="color: white" href="/buyer/login">
