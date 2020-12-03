@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>注册</title>
+    <title>买家注册</title>
     <link rel="stylesheet" href="/static/css/layui.css">
 </head>
 <body>

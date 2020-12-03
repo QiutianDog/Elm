@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>买家登录</title>
+    <title>管理员登录</title>
     <link rel="stylesheet" href="../../static/css/layui.css">
 </head>
 <body>
 <div style="padding-top: 20%;padding-left: 38%">
-    <form class="layui-form" action="/buyer/login" method="post">
+    <form class="layui-form" action="/seller/login" method="post">
         <div class="layui-form-item">
-            <label class="layui-form-label" for="buyerName">用户名</label>
+            <label class="layui-form-label" for="adminName">用户名</label>
             <div class="layui-input-inline">
-                <input type="text" name="buyerName" id="buyerName" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                <input type="text" name="adminName" id="adminName" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label" for="buyerPassword">密码</label>
+            <label class="layui-form-label" for="adminPassword">密码</label>
             <div class="layui-input-inline">
-                <input type="password" name="buyerPassword" id="buyerPassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                <input type="password" name="adminPassword" id="adminPassword" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
             </div>
         </div>
 

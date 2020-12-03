@@ -7,7 +7,6 @@ import com.neusoft.elm.dataobject.ProductInfo;
 import com.neusoft.elm.enums.OrderStatusEnum;
 import com.neusoft.elm.enums.PayStatusEnum;
 import com.neusoft.elm.enums.ResultEnum;
-import com.neusoft.elm.exception.SellException;
 import com.neusoft.elm.from.OrderFrom;
 import com.neusoft.elm.services.BuyerServices;
 import com.neusoft.elm.services.OrderDetailServices;
@@ -235,6 +234,31 @@ public class BuyerController {
         map.put("url", "/buyer/detail");
         map.put("msg", ResultEnum.ORDER_STATUS_ERROR);
         return new ModelAndView("common/error", map);
+    }
+
+    @GetMapping("/del")
+    public ModelAndView del(@RequestParam String orderId
+            , Map<String, Object> map) {
+        OrderMaster master = masterServices.findByOrderId(orderId);
+        if (master.getOrderStatus().equals(OrderStatusEnum.CANCEL.getCode())
+                || master.getOrderStatus().equals(OrderStatusEnum.FINISH.getCode())) {
+            detailServices.remove(orderId);
+            map.put("url", "/buyer/detail");
+            map.put("msg", ResultEnum.ORDER_CANCEL_SUCCESS);
+            return new ModelAndView("common/success");
+        }
+
+        map.put("url", "/buyer/detail");
+        map.put("msg", ResultEnum.ORDER_STATUS_ERROR);
+        return new ModelAndView("common/error", map);
+    }
+
+    @GetMapping("/info")
+    public ModelAndView info(@RequestParam String buyerId
+            , Map<String, Object> map) {
+        BuyerUser user = buyerServices.findById(buyerId);
+        map.put("user", user);
+        return new ModelAndView("buyer/info", map);
     }
 
 }

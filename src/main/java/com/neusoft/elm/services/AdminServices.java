@@ -31,8 +31,9 @@ public interface AdminServices {
 
     /**
      * 登录
-     * @param admin 管理员账号
+     * @param adminName 用户名
+     * @param adminPassword 密码
      * @return 管理员账号
      */
-    Admin login(Admin admin);
+    Admin login(String adminName, String adminPassword);
 }

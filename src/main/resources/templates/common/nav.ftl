@@ -17,7 +17,14 @@
                     <dd><a href="/seller/category/index">新增</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="#">登出</a></li>
+
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;">订单</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="/seller/master/list">我的订单</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="/">登出</a></li>
         </ul>
     </div>
 </div>

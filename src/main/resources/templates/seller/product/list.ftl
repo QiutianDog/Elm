@@ -34,7 +34,11 @@
                                 <td>${product.productDescription}</td>
                                 <td>${product.productPrice}</td>
                                 <td>${product.productStock}</td>
-                                <td>${product.productStatus}</td>
+                                <#if product.productStatus == 0>
+                                    <td style="color: green">上架</td>
+                                    <#elseif product.productStatus == 1>
+                                    <td style="color: gray">下架</td>
+                                </#if>
                                 <td>${product.categoryType}</td>
                                 <td>${product.createTime}</td>
                                 <td>${product.updateTime}</td>

@@ -10,6 +10,9 @@ import com.neusoft.elm.services.OrderMasterServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 /**
  * @author QiutianDog
  * @Date 2020/12/2
@@ -27,7 +30,17 @@ public class OrderMasterServicesImpl implements OrderMasterServices {
 
     @Override
     public void remove(String orderId) {
-        repository.deleteById(orderId);
+        OrderMaster master = repository.findById(orderId).orElse(null);
+        if (master != null) {
+            Integer orderStatus = master.getOrderStatus();
+            if (!orderStatus.equals(OrderStatusEnum.NEW.getCode())) {
+                repository.deleteById(orderId);
+            } else {
+                throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
+            }
+        } else {
+            throw new SellException(ResultEnum.ORDER_NOT_EXIST);
+        }
     }
 
     @Override
@@ -52,7 +65,9 @@ public class OrderMasterServicesImpl implements OrderMasterServices {
         OrderMaster master = repository.findById(orderId).orElse(null);
         if (master != null) {
             Integer orderStatus = master.getOrderStatus();
-            if (orderStatus.equals(OrderStatusEnum.NEW.getCode())) {
+            Integer payStatus = master.getPayStatus();
+            if (orderStatus.equals(OrderStatusEnum.NEW.getCode())
+                    && payStatus.equals(PayStatusEnum.SUCCESS.getCode())) {
                 master.setOrderStatus(OrderStatusEnum.FINISH.getCode());
                 repository.save(master);
             } else {
@@ -84,6 +99,11 @@ public class OrderMasterServicesImpl implements OrderMasterServices {
     @Override
     public OrderMaster findByOrderId(String orderId) {
         return repository.findById(orderId).orElse(null);
+    }
+
+    @Override
+    public List<OrderMaster> findAll() {
+        return repository.findAll();
     }
 
 }

@@ -2,6 +2,8 @@ package com.neusoft.elm.services;
 
 import com.neusoft.elm.dataobject.OrderMaster;
 
+import java.util.List;
+
 /**
  * @author QiutianDog
  * @Date 2020/11/29
@@ -48,4 +50,10 @@ public interface OrderMasterServices {
      * @return 订单对象
      */
     OrderMaster findByOrderId(String orderId);
+
+    /**
+     * 查询所有订单
+     * @return 所有订单对象
+     */
+    List<OrderMaster> findAll();
 }

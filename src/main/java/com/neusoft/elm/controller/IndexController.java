@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author QiutianDog
  * @Date 2020/12/1
  */
-@Controller()
+@Controller
 public class IndexController {
 
     @RequestMapping("/")
